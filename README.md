@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Gastón Celis
 
-## Getting Started
+Portfolio profesional construido con Next.js 16 (App Router) + TypeScript, Tailwind CSS v4, Three.js/React Three Fiber, GSAP y Lenis.
 
-First, run the development server:
+**Producción:** https://portfolio-wheat-nu-54.vercel.app
+
+## Stack
+
+- Next.js 16 (App Router, Turbopack) + TypeScript
+- Tailwind CSS v4
+- three + @react-three/fiber + @react-three/drei (hero 3D)
+- GSAP + @gsap/react + ScrollTrigger (animaciones de scroll)
+- Lenis (smooth scroll, sincronizado con ScrollTrigger)
+- framer-motion (micro-interacciones)
+
+## Desarrollo local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # build de producción
+npm run lint    # ESLint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Cómo editar el contenido
 
-## Learn More
+**Todo el texto del sitio vive en [`lib/data.ts`](lib/data.ts)** — identidad, resumen, stats, experiencia, proyectos, stack tecnológico y los copys de cada sección. Los componentes no tienen texto hardcodeado, así que para actualizar cualquier dato (nueva experiencia, proyecto, stat, etc.) alcanza con editar ese archivo.
 
-To learn more about Next.js, take a look at the following resources:
+## Tareas pendientes para Gastón
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Reemplazar el CV
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Copiar el PDF real a:
 
-## Deploy on Vercel
+```
+public/cv/Gaston-Celis-Full-Stack.pdf
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+El botón "Descargar CV" ya apunta a esa ruta (`identity.cvPath` en `lib/data.ts`) — no hace falta tocar código.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. Agregar la URL real de GitHub
+
+En `lib/data.ts`, reemplazar el placeholder:
+
+```ts
+export const identity = {
+  ...
+  github: "#", // ← reemplazar por "https://github.com/tu-usuario"
+};
+```
+
+### 3. (Opcional) Activar el avatar 3D en el Hero
+
+Actualmente el Hero usa una forma abstracta (icosaedro distorsionado violeta) como placeholder — la "opción B" del spec. Para pasar a un avatar 3D real (opción A):
+
+1. Generar un avatar low-poly/estilizado en [readyplayer.me](https://readyplayer.me).
+2. Copiar el `.glb` resultante a `public/models/avatar.glb`.
+3. En `components/three/HeroScene.tsx`, reemplazar `<DistortedShape />` por `<Avatar reducedMotion={reducedMotion} />` (importando `Avatar` desde `@/components/three/Avatar`).
+4. Ajustar cámara/escala en `HeroScene.tsx` según las proporciones reales del modelo exportado.
+
+`components/three/Avatar.tsx` ya está preparado con el mouse-tracking y el fallback de reduced-motion — solo falta el archivo `.glb` y el swap del import.
+
+### 4. Dominio propio (opcional)
+
+El sitio corre en el dominio gratuito de Vercel. Si en algún momento se quiere mover a un dominio propio:
+
+1. `vercel domains add tu-dominio.com` (o conectarlo desde el dashboard de Vercel).
+2. Configurar los registros DNS que indique Vercel en el proveedor del dominio.
+3. Actualizar `identity.website` en `lib/data.ts` con el nuevo dominio (de esto dependen `metadataBase`, el `sitemap.ts`, el `robots.ts` y las URLs de OpenGraph/Twitter).
+4. Redeployar (`vercel --prod`) y volver a verificar el OG con un validador (p. ej. [opengraph.xyz](https://www.opengraph.xyz) o el debugger de Meta/LinkedIn).
+
+## Deploy
+
+El proyecto está linkeado a Vercel (`gastoncelis-projects/portfolio`). Cualquier cambio se despliega manualmente con:
+
+```bash
+vercel --prod
+```
+
+Para deploys automáticos en cada push, conectar el repositorio desde el dashboard de Vercel (Project Settings → Git).
