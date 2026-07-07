@@ -7,8 +7,8 @@ export const identity = {
   location: "Córdoba, Argentina (remoto)",
   email: "gastoncelis09@gmail.com",
   linkedin: "https://linkedin.com/in/gaston-celis",
-  website: "portfolio-wheat-nu-54.vercel.app",
-  github: "#",
+  website: "portfolio-gaston-celis.vercel.app",
+  github: "https://github.com/GastonCelis",
   cvPath: "/cv/Gaston-Celis-Full-Stack.pdf",
 };
 

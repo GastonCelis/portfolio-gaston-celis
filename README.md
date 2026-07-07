@@ -2,7 +2,8 @@
 
 Portfolio profesional construido con Next.js 16 (App Router) + TypeScript, Tailwind CSS v4, Three.js/React Three Fiber, GSAP y Lenis.
 
-**Producción:** https://portfolio-wheat-nu-54.vercel.app
+**Producción:** https://portfolio-gaston-celis.vercel.app
+**Repo:** https://github.com/GastonCelis/portfolio-gaston-celis
 
 ## Stack
 
@@ -31,6 +32,14 @@ npm run lint    # ESLint
 
 **Todo el texto del sitio vive en [`lib/data.ts`](lib/data.ts)** — identidad, resumen, stats, experiencia, proyectos, stack tecnológico y los copys de cada sección. Los componentes no tienen texto hardcodeado, así que para actualizar cualquier dato (nueva experiencia, proyecto, stat, etc.) alcanza con editar ese archivo.
 
+## Deploy continuo
+
+El repo está conectado a Vercel: **cualquier push a `master` dispara un deploy de producción automático.** Para desplegar manualmente igual funciona:
+
+```bash
+vercel --prod
+```
+
 ## Tareas pendientes para Gastón
 
 ### 1. Reemplazar el CV
@@ -43,18 +52,7 @@ public/cv/Gaston-Celis-Full-Stack.pdf
 
 El botón "Descargar CV" ya apunta a esa ruta (`identity.cvPath` en `lib/data.ts`) — no hace falta tocar código.
 
-### 2. Agregar la URL real de GitHub
-
-En `lib/data.ts`, reemplazar el placeholder:
-
-```ts
-export const identity = {
-  ...
-  github: "#", // ← reemplazar por "https://github.com/tu-usuario"
-};
-```
-
-### 3. (Opcional) Activar el avatar 3D en el Hero
+### 2. (Opcional) Activar el avatar 3D en el Hero
 
 Actualmente el Hero usa una forma abstracta (icosaedro distorsionado violeta) como placeholder — la "opción B" del spec. Para pasar a un avatar 3D real (opción A):
 
@@ -65,21 +63,11 @@ Actualmente el Hero usa una forma abstracta (icosaedro distorsionado violeta) co
 
 `components/three/Avatar.tsx` ya está preparado con el mouse-tracking y el fallback de reduced-motion — solo falta el archivo `.glb` y el swap del import.
 
-### 4. Dominio propio (opcional)
+### 3. (Opcional) Dominio propio
 
-El sitio corre en el dominio gratuito de Vercel. Si en algún momento se quiere mover a un dominio propio:
+El sitio corre en el dominio gratuito de Vercel (`portfolio-gaston-celis.vercel.app`). Si en algún momento se quiere mover a un dominio propio:
 
-1. `vercel domains add tu-dominio.com` (o conectarlo desde el dashboard de Vercel).
+1. `vercel domains add tu-dominio.com` (o conectarlo desde el dashboard de Vercel → Project Settings → Domains).
 2. Configurar los registros DNS que indique Vercel en el proveedor del dominio.
 3. Actualizar `identity.website` en `lib/data.ts` con el nuevo dominio (de esto dependen `metadataBase`, el `sitemap.ts`, el `robots.ts` y las URLs de OpenGraph/Twitter).
-4. Redeployar (`vercel --prod`) y volver a verificar el OG con un validador (p. ej. [opengraph.xyz](https://www.opengraph.xyz) o el debugger de Meta/LinkedIn).
-
-## Deploy
-
-El proyecto está linkeado a Vercel (`gastoncelis-projects/portfolio`). Cualquier cambio se despliega manualmente con:
-
-```bash
-vercel --prod
-```
-
-Para deploys automáticos en cada push, conectar el repositorio desde el dashboard de Vercel (Project Settings → Git).
+4. Hacer push — el deploy continuo se encarga del resto — y volver a verificar el OG con un validador (p. ej. [opengraph.xyz](https://www.opengraph.xyz) o el debugger de Meta/LinkedIn).
