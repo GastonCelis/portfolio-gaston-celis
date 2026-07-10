@@ -69,7 +69,7 @@ export default function Hero() {
             </p>
             <p
               aria-hidden
-              className="pointer-events-none absolute left-0 top-0 -z-10 translate-x-[0.15em] translate-y-[0.22em] font-display text-2xl font-bold uppercase tracking-tight text-accent/35 sm:text-3xl"
+              className="pointer-events-none absolute left-0 top-0 -z-10 translate-x-[0.4em] translate-y-[0.85em] blur-[2px] font-display text-2xl font-bold uppercase tracking-tight text-accent/35 sm:text-3xl"
             >
               {copy.hero.ghostText}
             </p>
