@@ -1,0 +1,19 @@
+url: https://www.maguceramica.com.ar/
+
+cliente: Magu Cerámica
+
+información:
+Una tienda-catálogo para cerámica artesanal con compra asistida por WhatsApp.
+
+Desarrollo de una web institucional para presentar la marca, contar el proceso artesanal y mostrar un catálogo de productos con carrito que deriva el pedido a WhatsApp, con panel de administración para que el cliente cargue productos modifique redes sociales y textos.
+
+-Sitio institucional de marca
+-Catálogo de productos por categorías
+-Carrito de compras sin pasarela de pago
+-Derivación del pedido final a WhatsApp
+-Panel de administración autogestionable
+
+tecnologías usadas:
+Nextjs, Supabase, Vercel, Deploy continuo con GitHub
+
+rol: full stack developer

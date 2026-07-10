@@ -2,6 +2,7 @@ import { copy, identity } from "@/lib/data";
 import { GithubIcon, LinkedInIcon, DownloadIcon } from "@/components/ui/icons";
 import FadeIn from "@/components/anim/FadeIn";
 import MagneticButton from "@/components/ui/MagneticButton";
+import CopyEmailButton from "@/components/ui/CopyEmailButton";
 
 export default function Contact() {
   return (
@@ -12,16 +13,13 @@ export default function Contact() {
         </h2>
         <p className="max-w-xl text-lg text-fg-muted">{copy.contact.subtitle}</p>
 
-        <a
-          href={`mailto:${identity.email}`}
-          className="rounded-sm font-display text-2xl font-bold text-fg underline decoration-accent decoration-2 underline-offset-8 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas sm:text-4xl"
-        >
-          {identity.email}
-        </a>
+        <CopyEmailButton email={identity.email} />
 
         <div className="flex flex-wrap items-center gap-4">
           <a
             href={identity.github}
+            target="_blank"
+            rel="noreferrer noopener"
             className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             aria-label="GitHub"
           >
@@ -29,6 +27,8 @@ export default function Contact() {
           </a>
           <a
             href={identity.linkedin}
+            target="_blank"
+            rel="noreferrer noopener"
             className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             aria-label="LinkedIn"
           >

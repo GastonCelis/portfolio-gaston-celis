@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# generado desde /projects por scripts/sync-project-assets.mjs
+/public/projects/
+
 # production
 /build
 
@@ -41,3 +44,8 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Claude Code local tooling/config (not part of the site)
+.claude/
+.agents/
+skills-lock.json

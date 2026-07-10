@@ -1,5 +1,7 @@
+import Image from "next/image";
 import type { Project } from "@/lib/data";
 import Chip from "@/components/ui/Chip";
+import { ArrowUpRightIcon, GithubIcon } from "@/components/ui/icons";
 
 export default function ProjectItem({ project }: { project: Project }) {
   return (
@@ -27,11 +29,59 @@ export default function ProjectItem({ project }: { project: Project }) {
             ))}
           </ul>
 
-          <div className="mt-5 flex flex-wrap gap-2">
-            {project.stack.map((item) => (
-              <Chip key={item} label={item} />
-            ))}
-          </div>
+          {project.stack.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {project.stack.map((item) => (
+                <Chip key={item} label={item} />
+              ))}
+            </div>
+          )}
+
+          {(project.url || project.repoUrl) && (
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                >
+                  Ver sitio
+                  <ArrowUpRightIcon />
+                </a>
+              )}
+              {project.repoUrl && (
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                >
+                  <GithubIcon width="16" height="16" />
+                  Repositorio
+                </a>
+              )}
+            </div>
+          )}
+
+          {project.images && project.images.length > 0 && (
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {project.images.map((src) => (
+                <div
+                  key={src}
+                  className="relative aspect-video overflow-hidden rounded-lg border border-border bg-surface"
+                >
+                  <Image
+                    src={src}
+                    alt={project.name}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </article>

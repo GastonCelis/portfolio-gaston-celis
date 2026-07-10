@@ -6,7 +6,7 @@ import {
   SiDotnet,
   SiNodedotjs,
   SiJavascript,
-  SiTailwindcss,
+  SiMui,
 } from "react-icons/si";
 
 const items: { icon: IconType; label: string }[] = [
@@ -16,7 +16,7 @@ const items: { icon: IconType; label: string }[] = [
   { icon: SiDotnet, label: ".NET" },
   { icon: SiNodedotjs, label: "Node.js" },
   { icon: SiJavascript, label: "JavaScript" },
-  { icon: SiTailwindcss, label: "Tailwind CSS" },
+  { icon: SiMui, label: "Material UI" },
 ];
 
 // Repeated enough times so a single half comfortably exceeds even ultra-wide

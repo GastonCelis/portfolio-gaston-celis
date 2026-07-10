@@ -9,7 +9,7 @@ export const identity = {
   linkedin: "https://linkedin.com/in/gaston-celis",
   website: "portfolio-gaston-celis.vercel.app",
   github: "https://github.com/GastonCelis",
-  cvPath: "/cv/Gaston-Celis-Full-Stack.pdf",
+  cvPath: "/cv/Gaston-Celis-Full-Stack-Developer.pdf",
 };
 
 export const about = {
@@ -52,7 +52,7 @@ export const experience: ExperienceEntry[] = [
       "Plataformas complejas para clientes externos y productos internos en tecnología, educación, regulación, logística y eventos masivos. APIs REST en .NET + SQL Server, frontends React/Redux Toolkit, CI/CD con GitHub Actions y Azure DevOps. Liderazgo técnico de módulos internos, code reviews y mentoring a 2 devs junior.",
   },
   {
-    period: "2020 — 2022",
+    period: "2019 — 2022",
     company: "Formación intensiva",
     role: "Coderhouse · UTN",
     description:
@@ -66,9 +66,23 @@ export type Project = {
   role: string;
   bullets: string[];
   stack: string[];
+  url?: string;
+  repoUrl?: string;
+  images?: string[];
 };
 
-export const projects: Project[] = [
+export type ProjectGroup = {
+  id: string;
+  title: string;
+  note?: string;
+  url?: string;
+  projects: Project[];
+};
+
+// Snoop Consulting: proyectos confidenciales del cliente, mantenidos a mano
+// (a diferencia de los grupos GEC/personales, que se generan desde la
+// carpeta /projects — ver lib/projects.ts).
+export const snoopProjects: Project[] = [
   {
     number: "01",
     name: "Plataforma de gestión de eventos masivos",
@@ -151,7 +165,7 @@ export const techStack: TechCategory[] = [
   },
   {
     category: "IA",
-    items: ["Claude Code", "MCPs", "Skills", "Prompting avanzado"],
+    items: ["Claude Code", "ChatGPT", "MCPs", "Skills", "Prompting avanzado"],
   },
 ];
 
@@ -174,7 +188,7 @@ export const copy = {
   },
   footer: {
     name: "GASTÓN CELIS",
-    signature: "Diseñado y desarrollado por Gastón Celis · 2026",
+    signature: "Diseñado y desarrollado por Gastón Celis",
   },
   marquee: "FULL STACK DEVELOPER • REACT • NEXT.JS • TYPESCRIPT • .NET • NODE.JS •",
 };

@@ -35,6 +35,8 @@ export default function Hero() {
       <div className="hidden flex-col gap-5 min-[1400px]:absolute min-[1400px]:left-6 min-[1400px]:top-1/2 min-[1400px]:flex min-[1400px]:-translate-y-1/2">
         <a
           href={identity.github}
+          target="_blank"
+          rel="noreferrer noopener"
           className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           aria-label="GitHub"
         >
@@ -42,6 +44,8 @@ export default function Hero() {
         </a>
         <a
           href={identity.linkedin}
+          target="_blank"
+          rel="noreferrer noopener"
           className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           aria-label="LinkedIn"
         >

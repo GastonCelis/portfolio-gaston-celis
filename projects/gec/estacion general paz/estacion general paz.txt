@@ -1,0 +1,18 @@
+url: https://www.generalpaz.gob.ar/
+
+cliente: Municipalidad de Estación General Paz
+
+información:
+Un portal institucional para acercar la gestión municipal a los vecinos.
+
+Desarrollo de una web institucional para que los ciudadanos accedan a información del municipio, obras, transparencia, agenda, novedades, trámites, áreas de gestión, mapas y panel de administracion.
+
+-Sitio institucional público
+-Panel de administración autogestionable
+-Carga de noticias, eventos y contenido multimedia
+-Secciones para gobierno, áreas, trámites, transparencia y contacto
+
+tecnologías usadas:
+Nextjs, Supabase, Vercel, Deploy continuo con GitHub
+
+rol: full stack developer

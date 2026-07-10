@@ -1,0 +1,26 @@
+url: https://pokedex-b7523.firebaseapp.com/
+
+nombre: Pokedex
+
+repositorio GitHub: https://github.com/GastonCelis/pokedex
+
+descripción:
+El proyecto es una Pokédex web interactiva que reproduce visualmente un dispositivo Pokédex. Permite consultar Pokémon mediante la API pública PokéAPI, navegar entre ellos y visualizar datos.
+Es una aplicación exclusivamente frontend: no contiene un backend propio ni una base de datos.
+La interfaz simula el encendido y apagado de una Pokédex mediante dos cubiertas animadas.
+Posee: Búsqueda, Navegación, Visualización
+
+flujo:
+Componentes React
+       ↓
+Redux Thunks
+       ↓
+Axios
+       ↓
+PokéAPI
+       ↓
+Redux Slice
+       ↓
+Actualización de componentes
+
+tecnologías: React 18, TypeScript, Redux Toolkit, Axios, PokéAPI, Vite 5, Sass / SCSS, Font Awesome, Firebase Hosting, GitHub Actions
