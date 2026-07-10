@@ -10,16 +10,18 @@ import { GithubIcon, LinkedInIcon, DownloadIcon } from "@/components/ui/icons";
 import { usePreloaderContext } from "@/lib/preloader-context";
 
 export default function Hero() {
-  const { ready } = usePreloaderContext();
+  const { ready, mobileMenuOpen } = usePreloaderContext();
 
   return (
     <section
       id="top"
       className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6"
     >
-      <div aria-hidden className="absolute inset-0">
-        <HeroCanvas />
-      </div>
+      {!mobileMenuOpen && (
+        <div aria-hidden className="absolute inset-0">
+          <HeroCanvas />
+        </div>
+      )}
 
       <div
         aria-hidden
@@ -67,7 +69,7 @@ export default function Hero() {
             </p>
             <p
               aria-hidden
-              className="pointer-events-none absolute -top-2 left-0 -z-10 font-display text-2xl font-bold uppercase tracking-tight text-accent/35 sm:text-3xl"
+              className="pointer-events-none absolute left-1 top-1 -z-10 font-display text-2xl font-bold uppercase tracking-tight text-accent/35 sm:text-3xl"
             >
               {copy.hero.ghostText}
             </p>

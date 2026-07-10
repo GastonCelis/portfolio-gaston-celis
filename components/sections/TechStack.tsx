@@ -21,12 +21,12 @@ export default function TechStack() {
       gsap.to(chips, {
         opacity: 1,
         scale: 1,
-        duration: 0.5,
-        stagger: 0.03,
+        duration: 0.4,
+        stagger: 0.012,
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ref.current,
-          start: "top 80%",
+          start: "top 85%",
           once: true,
         },
       });

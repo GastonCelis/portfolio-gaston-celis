@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
 import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
+import { usePreloaderContext } from "@/lib/preloader-context";
 import { identity, navLinks } from "@/lib/data";
 
 const focusRing =
@@ -15,6 +16,7 @@ export default function Navbar() {
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
+  const { setMobileMenuOpen } = usePreloaderContext();
 
   useEffect(() => {
     function onScroll() {
@@ -33,6 +35,11 @@ export default function Navbar() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
+
+  useEffect(() => {
+    setMobileMenuOpen(open);
+    return () => setMobileMenuOpen(false);
+  }, [open, setMobileMenuOpen]);
 
   useGSAP(
     () => {
@@ -76,10 +83,11 @@ export default function Navbar() {
   );
 
   return (
-    <header
-      ref={navRef}
-      className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
-    >
+    <>
+      <header
+        ref={navRef}
+        className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
+      >
       <nav
         className={`flex w-full max-w-3xl items-center justify-between gap-4 rounded-full border border-border bg-surface/80 backdrop-blur-md transition-all duration-300 sm:px-6 ${
           compact ? "px-4 py-2" : "px-4 py-2.5 sm:py-3"
@@ -134,35 +142,34 @@ export default function Navbar() {
           </svg>
         </button>
       </nav>
+      </header>
 
       {open && (
-        <div
-          ref={menuRef}
-          id="mobile-menu"
-          className="fixed inset-0 top-20 z-40 flex flex-col items-center gap-6 bg-base px-6 py-12 md:hidden"
-        >
-          {navLinks.map((link) => (
+        <div id="mobile-menu" className="fixed inset-0 top-20 z-150 bg-base md:hidden">
+          <div ref={menuRef} className="flex flex-col items-center gap-6 px-6 py-12">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                data-menu-link
+                onClick={() => setOpen(false)}
+                className={`rounded-sm font-display text-2xl text-fg ${focusRing}`}
+              >
+                {link.label}
+              </a>
+            ))}
             <a
-              key={link.href}
-              href={link.href}
+              href={identity.cvPath}
+              download
               data-menu-link
               onClick={() => setOpen(false)}
-              className={`rounded-sm font-display text-2xl text-fg ${focusRing}`}
+              className={`mt-4 rounded-full border border-border px-6 py-3 text-sm font-medium text-fg transition-colors hover:border-accent hover:text-accent ${focusRing}`}
             >
-              {link.label}
+              Descargar CV
             </a>
-          ))}
-          <a
-            href={identity.cvPath}
-            download
-            data-menu-link
-            onClick={() => setOpen(false)}
-            className={`mt-4 rounded-full border border-border px-6 py-2 text-fg ${focusRing}`}
-          >
-            Descargar CV
-          </a>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
