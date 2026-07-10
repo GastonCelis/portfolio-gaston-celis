@@ -32,7 +32,7 @@ export default function Hero() {
         className="pointer-events-none absolute -right-40 top-1/3 h-96 w-96 rounded-full bg-accent/15 blur-[120px]"
       />
 
-      <div className="hidden flex-col gap-5 lg:absolute lg:left-6 lg:top-1/2 lg:flex lg:-translate-y-1/2">
+      <div className="hidden flex-col gap-5 min-[1400px]:absolute min-[1400px]:left-6 min-[1400px]:top-1/2 min-[1400px]:flex min-[1400px]:-translate-y-1/2">
         <a
           href={identity.github}
           className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
@@ -69,7 +69,7 @@ export default function Hero() {
             </p>
             <p
               aria-hidden
-              className="pointer-events-none absolute left-1 top-1 -z-10 font-display text-2xl font-bold uppercase tracking-tight text-accent/35 sm:text-3xl"
+              className="pointer-events-none absolute left-0 top-0 -z-10 translate-x-[0.15em] translate-y-[0.22em] font-display text-2xl font-bold uppercase tracking-tight text-accent/35 sm:text-3xl"
             >
               {copy.hero.ghostText}
             </p>
