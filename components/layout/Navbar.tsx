@@ -8,7 +8,7 @@ import { usePreloaderContext } from "@/lib/preloader-context";
 import { identity, navLinks } from "@/lib/data";
 
 const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -145,7 +145,7 @@ export default function Navbar() {
       </header>
 
       {open && (
-        <div id="mobile-menu" className="fixed inset-0 top-20 z-150 bg-base md:hidden">
+        <div id="mobile-menu" className="fixed inset-0 top-20 z-150 bg-canvas md:hidden">
           <div ref={menuRef} className="flex flex-col items-center gap-6 px-6 py-12">
             {navLinks.map((link) => (
               <a

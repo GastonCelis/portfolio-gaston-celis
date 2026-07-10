@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --color-base: #0a0a0f;
+  --color-canvas: #0a0a0f;
   --color-surface: #12121a;
   --color-fg: #f4f4f5;
   --color-fg-muted: #9ca3af;
@@ -10,7 +10,7 @@
 }
 
 @theme inline {
-  --color-base: var(--color-base);
+  --color-canvas: var(--color-canvas);
   --color-surface: var(--color-surface);
   --color-fg: var(--color-fg);
   --color-fg-muted: var(--color-fg-muted);
@@ -37,7 +37,7 @@ html {
 }
 
 body {
-  background: var(--color-base);
+  background: var(--color-canvas);
   color: var(--color-fg);
   font-family: var(--font-sans);
 }
@@ -61,5 +61,9 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 22s linear infinite;
+  animation: marquee 88s linear infinite;
+}
+
+.animate-tech-marquee {
+  animation: marquee 60s linear infinite;
 }

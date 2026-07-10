@@ -71,7 +71,7 @@ export default function RootLayout({
       lang="es"
       className={`${archivo.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-base text-fg">
+      <body className="min-h-full bg-canvas text-fg">
         <a
           href="#main-content"
           className="fixed left-4 top-4 z-200 -translate-y-24 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-fg transition-transform focus:translate-y-0"

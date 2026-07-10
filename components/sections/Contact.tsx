@@ -14,7 +14,7 @@ export default function Contact() {
 
         <a
           href={`mailto:${identity.email}`}
-          className="rounded-sm font-display text-2xl font-bold text-fg underline decoration-accent decoration-2 underline-offset-8 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base sm:text-4xl"
+          className="rounded-sm font-display text-2xl font-bold text-fg underline decoration-accent decoration-2 underline-offset-8 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas sm:text-4xl"
         >
           {identity.email}
         </a>
@@ -22,14 +22,14 @@ export default function Contact() {
         <div className="flex flex-wrap items-center gap-4">
           <a
             href={identity.github}
-            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             aria-label="GitHub"
           >
             <GithubIcon /> GitHub
           </a>
           <a
             href={identity.linkedin}
-            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             aria-label="LinkedIn"
           >
             <LinkedInIcon /> LinkedIn
@@ -38,7 +38,7 @@ export default function Contact() {
             <a
               href={identity.cvPath}
               download
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-fg transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-fg transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               <DownloadIcon /> Descargar CV
             </a>

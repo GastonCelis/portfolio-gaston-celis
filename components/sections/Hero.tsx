@@ -1,7 +1,7 @@
 "use client";
 
 import { copy, identity } from "@/lib/data";
-import Marquee from "@/components/ui/Marquee";
+import TechMarquee from "@/components/ui/TechMarquee";
 import SplitTextReveal from "@/components/anim/SplitTextReveal";
 import FadeIn from "@/components/anim/FadeIn";
 import HeroCanvas from "@/components/three/HeroCanvas";
@@ -35,14 +35,14 @@ export default function Hero() {
       <div className="hidden flex-col gap-5 min-[1400px]:absolute min-[1400px]:left-6 min-[1400px]:top-1/2 min-[1400px]:flex min-[1400px]:-translate-y-1/2">
         <a
           href={identity.github}
-          className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           aria-label="GitHub"
         >
           <GithubIcon />
         </a>
         <a
           href={identity.linkedin}
-          className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          className="rounded-full text-fg-muted transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
           aria-label="LinkedIn"
         >
           <LinkedInIcon />
@@ -82,7 +82,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#proyectos"
-              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-fg transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-fg transition-transform hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
             >
               {copy.hero.ctaPrimary}
             </a>
@@ -90,7 +90,7 @@ export default function Hero() {
               <a
                 href={identity.cvPath}
                 download
-                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-fg transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
               >
                 <DownloadIcon />
                 {copy.hero.ctaSecondary}
@@ -101,7 +101,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-0 left-0 w-full">
-        <Marquee text={copy.marquee} />
+        <TechMarquee />
       </div>
     </section>
   );

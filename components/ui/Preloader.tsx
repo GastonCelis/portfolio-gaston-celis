@@ -72,7 +72,7 @@ export default function Preloader() {
   return (
     <div
       ref={rootRef}
-      className="fixed inset-0 z-100 flex items-center justify-center overflow-hidden bg-base"
+      className="fixed inset-0 z-100 flex items-center justify-center overflow-hidden bg-canvas"
       style={{ clipPath: "inset(0 0 0% 0)" }}
     >
       <div aria-hidden className="absolute inset-0 flex items-center opacity-40">
